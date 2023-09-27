@@ -22,14 +22,19 @@
     line-height: 24px;
     padding: 8px 16px;
 }
+.filtro .listas {
+    margin-left: 8px;
+    margin-right: 8px; /* Adicionando espaçamento entre o texto e a imagem */
+}
 
 .filtro:hover {
+    
+    direction: horizontal;
     flex-direction: row;
+    color:rgb(26, 11, 228)
 }
 
-.icon-container {
-    margin-left: 10px;
-}
+
 
 img {
     width: 25px;
