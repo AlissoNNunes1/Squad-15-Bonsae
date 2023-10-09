@@ -40,3 +40,59 @@ img {
     width: 25px;
     height: auto;
 }
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav li {
+    display: inline-block;
+    position: relative;
+}
+
+nav li a {
+    display: inline-block;
+    color: rgb(0, 21, 211);
+    text-decoration: none;
+    padding: 15px;
+}
+
+li:hover{
+    transform: scale(1.1);
+}
+
+.dropdown-menu {
+
+    position: absolute;
+    left: 20px;
+    display: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.dropdown img {
+    height: 38px;
+    width: auto;
+    vertical-align: middle; 
+    margin-right: 10px; 
+    right: -40px;
+    position: absolute;
+}
+
