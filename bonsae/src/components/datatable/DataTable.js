@@ -3,3 +3,5 @@ function DataTable() {
         <div></div>
     )
 }
+
+export default DataTable

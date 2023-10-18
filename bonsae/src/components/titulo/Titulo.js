@@ -3,3 +3,5 @@ function Titulo() {
         <div></div>
     )
 }
+
+export default Titulo
