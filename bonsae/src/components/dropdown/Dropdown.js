@@ -1,27 +1,15 @@
 import styles from "./Dropdown.module.css";
+import {useState} from 'react'
+
 
 function Dropdown(props) {
-  function exibirOpcoes() {
-    return (
-      <ul className={styles.dropdownMenu}>
-        <li>
-          <button>Opção 1</button>
-        </li>
-        <li>
-          <button>Opção 2</button>
-        </li>
-        <li>
-          <button>Opção 3</button>
-        </li>
-        <li>
-          <button>Opção 4</button>
-        </li>
-        <li>
-          <button>Opção 5</button>
-        </li>
-      </ul>
-    );
-  }
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+    function exibirOpcoes() {
+        setMenuIsOpen(true);
+      }
+    
+    
+  
 
   return (
     <div className={styles.dropdownContainer}>
@@ -41,24 +29,28 @@ function Dropdown(props) {
             fill="#1161D8"
           />
         </svg>
+        {menuIsOpen && (
+        <ul className={styles.dropdownMenu}>
+          <li>
+            <button>Opção 1</button>
+          </li>
+          <li>
+            <button>Opção 2</button>
+          </li>
+          <li>
+            <button>Opção 3</button>
+          </li>
+          <li>
+            <button>Opção 4</button>
+          </li>
+          <li>
+            <button>Opção 5</button>
+          </li>
+        </ul>
+      )}
+        
       </div>
-      <ul className={styles.dropdownMenu}>
-        <li>
-          <button>Opção 1</button>
-        </li>
-        <li>
-          <button>Opção 2</button>
-        </li>
-        <li>
-          <button>Opção 3</button>
-        </li>
-        <li>
-          <button>Opção 4</button>
-        </li>
-        <li>
-          <button>Opção 5</button>
-        </li>
-      </ul>
+      
     </div>
   )
 }
