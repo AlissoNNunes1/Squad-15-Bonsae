@@ -1,21 +1,66 @@
+import styles from "./Dropdown.module.css";
+
 function Dropdown(props) {
+  function exibirOpcoes() {
     return (
-        <div>
-            <button class="filtro">
+      <ul className={styles.dropdownMenu}>
+        <li>
+          <button>Opção 1</button>
+        </li>
+        <li>
+          <button>Opção 2</button>
+        </li>
+        <li>
+          <button>Opção 3</button>
+        </li>
+        <li>
+          <button>Opção 4</button>
+        </li>
+        <li>
+          <button>Opção 5</button>
+        </li>
+      </ul>
+    );
+  }
+
+  return (
+    <div className={styles.dropdownContainer}>
+      <button onClick={exibirOpcoes} className={styles.dropdownButton}>
         Filtrar por
-        <div class= "listas">
-            <img src={props.foto} alt="filtro"/>
-        </div>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li><a href="#">Opção 1</a></li>
-            <li><a href="#">Opção 2</a></li>
-            <li><a href="#">Opção 3</a></li>
-            <li><a href="#">Opção 4</a></li>
-            <li><a href="#">Opção 5</a></li>
-        </ul>
-    </button>
-        </div>
-    )
+      </button>
+      <div className={styles.dropdownImage}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="23"
+          height="23"
+          viewBox="0 0 23 23"
+          fill="none"
+        >
+          <path
+            d="M13.4435 16.5826H9.80041L9.80041 14.7611H13.4435V16.5826ZM19.819 5.65327V7.47483L3.42496 7.47483V5.65327L19.819 5.65327ZM17.0866 12.0287L6.15729 12.0287V10.2072L17.0866 10.2072V12.0287Z"
+            fill="#1161D8"
+          />
+        </svg>
+      </div>
+      <ul className={styles.dropdownMenu}>
+        <li>
+          <button>Opção 1</button>
+        </li>
+        <li>
+          <button>Opção 2</button>
+        </li>
+        <li>
+          <button>Opção 3</button>
+        </li>
+        <li>
+          <button>Opção 4</button>
+        </li>
+        <li>
+          <button>Opção 5</button>
+        </li>
+      </ul>
+    </div>
+  )
 }
 
-export default Dropdown
+export default Dropdown;
