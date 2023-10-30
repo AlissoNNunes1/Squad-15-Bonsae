@@ -32,19 +32,19 @@ function Dropdown(props) {
         {menuIsOpen && (
         <ul className={styles.dropdownMenu}>
           <li>
-            <button>Opção 1</button>
+            <a>Opção 1</a>
           </li>
           <li>
-            <button>Opção 2</button>
+            <a>Opção 2</a>
           </li>
           <li>
-            <button>Opção 3</button>
+            <a>Opção 3</a>
           </li>
           <li>
-            <button>Opção 4</button>
+            <a>Opção 4</a>
           </li>
           <li>
-            <button>Opção 5</button>
+            <a>Opção 5</a>
           </li>
         </ul>
       )}

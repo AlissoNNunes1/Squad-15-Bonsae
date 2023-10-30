@@ -38,7 +38,31 @@ height: 21.859px;
     padding: 8px 16px; /* padding top, bottom, left, right */
   }
 
-  .dropdownMenu button{
-        background-color: #1161D8;
+  
+  .dropdownMenu a{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    color: #555555 ;
+    text-align: center;
+    font-family: Nunito Medium;
+    font-size: 16px;
+    line-height: 24px;
+}
+.dropdownMenu a:hover{
+    background-color:#1161D8;
+    border-radius: 8px;
+    color: #555555 ;
+    text-align: center;
+    font-family: Nunito Medium;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+  .dropdownMenu li{
+    list-style: none;
+    border-color: #E5E5E5;
+ 
+
+        
   }
   
