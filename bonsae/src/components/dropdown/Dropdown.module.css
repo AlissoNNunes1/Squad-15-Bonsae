@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 .dropdownContainer {
     display: inline-flex;
     padding: 7.286px 14.572px;
@@ -14,48 +16,79 @@
 .dropdownButton {
     color: var(--text-section, #333);
     text-align: center;
-    font-family: Nunito;
-    font-size: 16.394px;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 80px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
-    line-height: 21.859px; /* 133.333% */
+    line-height: 24px; /* 133.333% */
     border: none;
     background-color: #fff;
 }
 
 .dropdownImage {
-    width: 21.859px;
-height: 21.859px;
+	width: 24px;
+  height: 24px;
 }
 
 .dropdownButton:hover {
-    color: #1161D8;
-    direction: rtl; /* horizontal */
-    align-items: center; /* Middle center */
-    vertical-align: stretch; /* Hug */
-    width: fit-content; /* Hug */
-    gap: 8px; /* Item spacing */
-    padding: 8px 16px; /* padding top, bottom, left, right */
+  color: var(--action-light-primary, #1161D8);
+    justify-content: center;
+    display: inline-flex;
+    /* direction: rtl; /* horizontal */
+    /* align-items: center; /* Middle center */
+    /*vertical-align: stretch; /* Hug */
+    /*width: fit-content; /* Hug */
+    /*gap: 8px; /* Item spacing */
+    /*padding: 8px 16px; /* padding top, bottom, left, right */
+  }
+  .dropdownMenuContainer{
+    width: 174px; height: 168px; position: relative
+  }
+
+  .dropdownMenu{
+    padding: 8px; 
+    left: 0px; 
+    top: 0px; 
+    position: absolute; 
+    background: white; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06); 
+    border-radius: 8px; 
+    border: 1px #E5E5E5 solid; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 8px; 
+    display: inline-flex
   }
 
   
   .dropdownMenu a{
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    color: #555555 ;
-    text-align: center;
-    font-family: Nunito Medium;
-    font-size: 16px;
-    line-height: 24px;
+    align-self: stretch; 
+    padding-left: 16px; 
+    font-family: 'Nunito', sans-serif;
+    padding-right: 16px; 
+    padding-top: 8px; 
+    padding-bottom: 8px; 
+    background: white; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 8px; 
+    display: inline-flex
 }
 .dropdownMenu a:hover{
-    background-color:#1161D8;
     border-radius: 8px;
-    color: #555555 ;
+   background: var(--action-light-primary, #1161D8);
+   color: var(--action-light-contrast, #FFF);
+    
     text-align: center;
-    font-family: Nunito Medium;
-    font-size: 16px;
-    line-height: 24px;
+    
+   
+}
+.dropdownSeparator {
+  align-self: stretch;
+  height: 0px;
+  border: 1px #E5E5E5 solid;
 }
 
   .dropdownMenu li{

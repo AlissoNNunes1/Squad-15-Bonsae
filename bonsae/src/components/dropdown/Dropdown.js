@@ -29,29 +29,28 @@ function Dropdown(props) {
             fill="#1161D8"
           />
         </svg>
+        </div>
         {menuIsOpen && (
+        <div className={styles.dropdownMenuContainer}>
         <ul className={styles.dropdownMenu}>
-          <li>
+                <li>
             <a>Opção 1</a>
           </li>
+          <div className={styles.dropdownSeparator} />
           <li>
             <a>Opção 2</a>
           </li>
+          <div className={styles.dropdownSeparator} />
           <li>
             <a>Opção 3</a>
           </li>
-          <li>
-            <a>Opção 4</a>
-          </li>
-          <li>
-            <a>Opção 5</a>
-          </li>
         </ul>
+        </div>
       )}
         
       </div>
       
-    </div>
+    
   )
 }
 
