@@ -8,6 +8,8 @@
     gap: 7.286px;
     width: auto;
     height: auto;
+    position: relative;
+    
     
     
     
@@ -24,6 +26,9 @@
     line-height: 24px; /* 133.333% */
     border: none;
     background-color: #fff;
+    position: relative;
+    z-index: 1;
+    
 }
 
 .dropdownImage {
@@ -43,18 +48,22 @@
     /*padding: 8px 16px; /* padding top, bottom, left, right */
   }
   .dropdownMenuContainer{
-    width: 174px; height: 168px; position: relative
+    width: 174px; height: 168px; display: inline-flex; z-index: 2;
+    position: absolute;
+    top: 100%;
+    z-index: 2;
   }
 
   .dropdownMenu{
     padding: 8px; 
     left: 0px; 
     top: 0px; 
-    position: absolute; 
+    position: relative; 
     background: white; 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06); 
     border-radius: 8px; 
     border: 1px #E5E5E5 solid; 
+    overflow-y: auto;
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
@@ -75,20 +84,22 @@
     align-items: center; 
     gap: 8px; 
     display: inline-flex
+    d
 }
 .dropdownMenu a:hover{
     border-radius: 8px;
    background: var(--action-light-primary, #1161D8);
    color: var(--action-light-contrast, #FFF);
+   
     
-    text-align: center;
+    
     
    
 }
 .dropdownSeparator {
   align-self: stretch;
   height: 0px;
-  border: 1px #E5E5E5 solid;
+  border: 4px #E5E5E5 solid;
 }
 
   .dropdownMenu li{
