@@ -42,10 +42,10 @@
     display: inline-flex;
     /* direction: rtl; /* horizontal */
     /* align-items: center; /* Middle center */
-    /*vertical-align: stretch; /* Hug */
-    /*width: fit-content; /* Hug */
-    /*gap: 8px; /* Item spacing */
-    /*padding: 8px 16px; /* padding top, bottom, left, right */
+    /*vertical-align: stretch; / Hug */
+    /*width: fit-content; / Hug */
+    /*gap: 8px; / Item spacing */
+    /*padding: 8px 16px; / padding top, bottom, left, right */
   }
   .dropdownMenuContainer{
     width: 174px; height: 168px; display: inline-flex; z-index: 2;
