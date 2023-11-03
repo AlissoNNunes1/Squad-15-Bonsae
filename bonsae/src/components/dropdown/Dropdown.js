@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 function Dropdown(props) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -27,10 +28,15 @@ function Dropdown(props) {
     setMenuIsOpen(!menuIsOpen);
   }
 
+  function selecionarOpcao(opcao) {
+    setSelectedOption(opcao);
+    setMenuIsOpen(false); // Feche o menu após a seleção
+  }
+
   return (
     <div className={styles.dropdownContainer} ref={dropdownRef}>
       <button onClick={exibirOpcoes} className={styles.dropdownButton}>
-        Filtrar por
+        {selectedOption ? selectedOption : 'Filtrar por'} {/* Exibe a opção selecionada ou 'Filtrar por' */}
       </button>
       <div className={styles.dropdownImage}>
         { <svg
@@ -50,23 +56,23 @@ function Dropdown(props) {
         <div className={styles.dropdownMenuContainer}>
           <ul className={styles.dropdownMenu}>
             <li>
-              <a>Opção 1</a>
+              <a onClick={() => selecionarOpcao('Opção 1')}>Opção 1</a>
             </li>
             <div className={styles.dropdownSeparator} />
             <li>
-              <a>Opção 2</a>
+              <a onClick={() => selecionarOpcao('Opção 2')}>Opção 2</a>
             </li>
             <div className={styles.dropdownSeparator} />
             <li>
-              <a>Opção 3</a>
+              <a onClick={() => selecionarOpcao('Opção 3')}>Opção 3</a>
             </li>
             <div className={styles.dropdownSeparator} />
             <li>
-              <a>Opção 4</a>
+              <a onClick={() => selecionarOpcao('Opção 4')}>Opção 4</a>
             </li>
             <div className={styles.dropdownSeparator} />
             <li>
-              <a>Opção 5</a>
+              <a onClick={() => selecionarOpcao('Opção 5')}>Opção 5</a>
             </li>
           </ul>
         </div>
