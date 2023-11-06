@@ -51,7 +51,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  display: inline-flex;
+  display: block;
 }
 
 .dropdownMenu a {
@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  display: inline-flex;
+  display: block;
 }
 
 .dropdownMenu a:hover {
