@@ -5,6 +5,10 @@ function Dropdown(props) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
+
+  // Array de opções
+  const options = ['Nome', 'Situação', 'Data', ];
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -30,6 +34,7 @@ function Dropdown(props) {
 
   function selecionarOpcao(opcao) {
     setSelectedOption(opcao);
+    setIsOptionSelected(true);
     setMenuIsOpen(false); // Feche o menu após a seleção
   }
 
@@ -55,25 +60,16 @@ function Dropdown(props) {
       {menuIsOpen && (
         <div className={styles.dropdownMenuContainer}>
           <ul className={styles.dropdownMenu}>
-            <li>
-              <a onClick={() => selecionarOpcao('Opção 1')}>Opção 1</a>
-            </li>
-            <div className={styles.dropdownSeparator} />
-            <li>
-              <a onClick={() => selecionarOpcao('Opção 2')}>Opção 2</a>
-            </li>
-            <div className={styles.dropdownSeparator} />
-            <li>
-              <a onClick={() => selecionarOpcao('Opção 3')}>Opção 3</a>
-            </li>
-            <div className={styles.dropdownSeparator} />
-            <li>
-              <a onClick={() => selecionarOpcao('Opção 4')}>Opção 4</a>
-            </li>
-            <div className={styles.dropdownSeparator} />
-            <li>
-              <a onClick={() => selecionarOpcao('Opção 5')}>Opção 5</a>
-            </li>
+            {options.map((option, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => selecionarOpcao(option)}
+                  className={option === selectedOption ? styles.selectedOption : ''}
+                >
+                  {option}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       )}
