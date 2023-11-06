@@ -54,11 +54,13 @@
   align-items: center;
   gap: 8px;
   display: flex;
+ 
 }
 
 .dropdownMenu button {
   align-self: stretch;
   padding: 8px 16px;
+  width: 100%;
   display: flex;
   font-size: 16px;
   font-family: 'Nunito', sans-serif;
@@ -103,8 +105,9 @@
 
 
 .dropdownSeparator {
-  height: 0;
-  border: 4px #E5E5E5 solid;
+  width: 158px;
+  height: 1px;
+  background: #E5E5E5;
 }
 
 .dropdownMenu li {
