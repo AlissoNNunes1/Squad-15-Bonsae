@@ -32,19 +32,20 @@
 }
 
 .dropdownMenuContainer {
-  width: 174px;
-  height: 168px;
+  width: 100%; /* Ajustado para ocupar a largura total do container pai */
   position: absolute;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  top: 100%;
-  z-index: 2;
+  top: 100%; /* Colocado no final do botão */
+  left: 0; /* Alinhado com a esquerda */
+  display: flex;
+  justify-content: center; /* Centralizado horizontalmente */
 }
 
 .dropdownMenu {
-  padding: 8px;
-  position: relative;
+  display: none;
+  width: 174px; /* Largura fixa */
+  max-height: 168px; /* Altura máxima fixa */
+  position: absolute;
+  bottom: 100%; /* Colocado no final do botão */
   background: #FFF;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
@@ -54,10 +55,9 @@
   align-items: center;
   gap: 8px;
   display: flex;
- 
 }
 
-.dropdownMenu button {
+.dropdownMenu a {
   align-self: stretch;
   padding: 8px 16px;
   width: 100%;
@@ -67,19 +67,19 @@
   background: white;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-decoration: none;
   gap: 8px;
   font-weight: 500;
   line-height: 24px;
   border: none;
   background-color: transparent;
-  cursor: pointer; /* Adicionando cursor para indicar que é clicável */
+  cursor: pointer;
   color: #555;
   border-radius: 8px;
   text-align: left;
 }
 
-.dropdownMenu button:hover {
+.dropdownMenu a:hover {
   background: var(--action-light-primary, #1161D8);
   color: var(--action-light-contrast, #FFF);
 }
@@ -100,9 +100,6 @@
   border-radius: 8px !important;
   background:  #B4B4B4 !important;
 }
-
-
-
 
 .dropdownSeparator {
   width: 158px;

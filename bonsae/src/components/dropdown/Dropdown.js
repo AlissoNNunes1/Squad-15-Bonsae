@@ -8,7 +8,7 @@ function Dropdown(props) {
   const [isOptionSelected, setIsOptionSelected] = useState(false);
 
   // Array de opções
-  const options = ['Nome', 'Situação', 'Data', ];
+  const options = ['Nome', 'Situação', 'Data'];
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -40,7 +40,7 @@ function Dropdown(props) {
 
   return (
     <div className={styles.dropdownContainer} ref={dropdownRef}>
-      <button onClick={exibirOpcoes} className={styles.dropdownButton}>
+      <button aria-haspopup="true" aria-expanded="false" type='button'  data-toggle="dropdown" onClick={exibirOpcoes} className={styles.dropdownButton}>
         {selectedOption ? selectedOption : 'Filtrar por'} {/* Exibe a opção selecionada ou 'Filtrar por' */}
       </button>
       <div className={styles.dropdownImage}>
@@ -62,12 +62,13 @@ function Dropdown(props) {
           <ul className={styles.dropdownMenu}>
             {options.map((option, index) => (
               <li key={index}>
-                <button
+                <a
+                  href="#"
                   onClick={() => selecionarOpcao(option)}
                   className={option === selectedOption ? styles.selectedOption : ''}
                 >
                   {option}
-                </button>
+                </a>
               </li>
             ))}
           </ul>
