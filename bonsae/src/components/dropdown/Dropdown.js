@@ -1,15 +1,24 @@
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import styles from "./Dropdown.module.css";
-import { useState, useEffect, useRef } from 'react';
 
-function Dropdown({ backgroundColor, textColor, highlightColor, fontFamily,fontSize }) {
-  
+function Dropdown({
+  backgroundColor,
+  textColor,
+  highlightColor,
+  fontFamily,
+  fontSize,
+  border,
+  borderRadius,
+  boxShadow,
+  options,
+  onSelect,
+  label,
+}) {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
-
-  // Array de opções
-  const options = ['Nome', 'Situação', 'Data'];
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -29,74 +38,68 @@ function Dropdown({ backgroundColor, textColor, highlightColor, fontFamily,fontS
     };
   }, [menuIsOpen]);
 
-  function exibirOpcoes() {
+  function toggleMenu() {
     setMenuIsOpen(!menuIsOpen);
   }
 
-  function selecionarOpcao(opcao) {
-    setSelectedOption(opcao);
+  function handleOptionClick(option) {
+    setSelectedOption(option);
     setIsOptionSelected(true);
-    setMenuIsOpen(false); // Feche o menu após a seleção
+    setMenuIsOpen(false);
+    if (onSelect) {
+      onSelect(option);
+    }
   }
 
   const dropdownStyles = {
-    backgroundColor: backgroundColor ,
-    color: textColor ,
-    highlightColor: highlightColor ,
-    // Adicione outras propriedades de estilo personalizadas aqui
-    fontFamily: fontFamily ,
-    fontSize: fontSize  ,
-    // Adicione mais estilos desejados
+    backgroundColor: backgroundColor,
+    color: textColor,
+    highlightColor: highlightColor,
+    fontFamily: fontFamily,
+    fontSize: fontSize,
+    border: border,
+    borderRadius: borderRadius,
+    boxShadow: boxShadow,
   };
-  
 
   return (
     <div className={styles.dropdownContainer} ref={dropdownRef}>
       <button
-  aria-haspopup="true"
-  aria-expanded={menuIsOpen}
-  type="button"
-  data-toggle="dropdown"
-  onClick={exibirOpcoes}
-  className={styles.dropdownButton}
-  style={{
-    backgroundColor: dropdownStyles.backgroundColor,
-    color: dropdownStyles.color,
-    fontFamily: dropdownStyles.fontFamily,
-    fontSize: dropdownStyles.fontSize,
-    // Aplique mais estilos personalizados conforme necessário
-  }}
->
-
-        {selectedOption ? selectedOption : 'Filtrar por'} {/* Exibe a opção selecionada ou 'Filtrar por' */}
+        aria-haspopup="true"
+        aria-expanded={menuIsOpen}
+        type="button"
+        data-toggle="dropdown"
+        onClick={toggleMenu}
+        className={styles.dropdownButton}
+        style={dropdownStyles}
+        aria-label={label || 'Dropdown'}
+      >
+        {selectedOption ? selectedOption : 'Filtrar por'}
       </button>
       <div className={styles.dropdownImage}>
-        { <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="23"
-          height="23"
-          viewBox="0 0 23 23"
-          fill="none"
-        >
-          <path
-            d="M13.4435 16.5826H9.80041L9.80041 14.7611H13.4435V16.5826ZM19.819 5.65327V7.47483L3.42496 7.47483V5.65327L19.819 5.65327ZM17.0866 12.0287L6.15729 12.0287V10.2072L17.0866 10.2072V12.0287Z"
-            fill={dropdownStyles.highlightColor}
-          />
-        </svg>}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <g clip-path="url(#clip0_8_6498)">
+            <path d="M14 18L10 18L10 16L14 16V18ZM21 6V8L3 8V6L21 6ZM18 13L6 13V11L18 11V13Z" fill="#1161D8" />
+          </g>
+          <defs>
+            <clipPath id="clip0_8_6498">
+              <rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0)" />
+            </clipPath>
+          </defs>
+        </svg>
       </div>
       {menuIsOpen && (
         <div className={styles.dropdownMenuContainer}>
           <ul className={styles.dropdownMenu} style={{ backgroundColor: dropdownStyles.backgroundColor }}>
             {options.map((option, index) => (
               <li key={index}>
-                <a
-                  href="#"
-                  onClick={() => selecionarOpcao(option)}
+                <button
+                  onClick={() => handleOptionClick(option)}
                   className={option === selectedOption ? styles.selectedOption : ''}
                   style={{ color: dropdownStyles.color }}
                 >
                   {option}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
@@ -105,5 +108,19 @@ function Dropdown({ backgroundColor, textColor, highlightColor, fontFamily,fontS
     </div>
   );
 }
+
+Dropdown.propTypes = {
+  backgroundColor: PropTypes.string,
+  textColor: PropTypes.string,
+  highlightColor: PropTypes.string,
+  fontFamily: PropTypes.string,
+  fontSize: PropTypes.string,
+  border: PropTypes.string,
+  borderRadius: PropTypes.string,
+  boxShadow: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSelect: PropTypes.func,
+  label: PropTypes.string,
+};
 
 export default Dropdown;
