@@ -1,6 +1,8 @@
+import styles from "./DataTable.module.css"
+
 function DataTable() {
     return (
-        <div></div>
+        <div className={styles.background}></div>
     )
 }
 
