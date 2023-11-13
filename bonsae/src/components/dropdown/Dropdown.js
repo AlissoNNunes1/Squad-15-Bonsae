@@ -11,7 +11,6 @@ function Dropdown({
   border,
   borderRadius,
   boxShadow,
-  options,
   onSelect,
   label,
 }) {
@@ -19,6 +18,8 @@ function Dropdown({
   const dropdownRef = useRef(null);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
+
+  const options = ['Nome', 'Situação', 'Data'];
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -42,13 +43,10 @@ function Dropdown({
     setMenuIsOpen(!menuIsOpen);
   }
 
-  function handleOptionClick(option) {
-    setSelectedOption(option);
+  function selecionarOpcao(opcao) {
+    setSelectedOption(opcao);
     setIsOptionSelected(true);
-    setMenuIsOpen(false);
-    if (onSelect) {
-      onSelect(option);
-    }
+    setMenuIsOpen(false); // Feche o menu após a seleção
   }
 
   const dropdownStyles = {
@@ -93,14 +91,15 @@ function Dropdown({
           <ul className={styles.dropdownMenu} style={{ backgroundColor: dropdownStyles.backgroundColor }}>
             {options.map((option, index) => (
               <li key={index}>
-                <button
-                  onClick={() => handleOptionClick(option)}
-                  className={option === selectedOption ? styles.selectedOption : ''}
-                  style={{ color: dropdownStyles.color }}
-                >
-                  {option}
-                </button>
-              </li>
+              <a
+                href="#"
+                onClick={() => selecionarOpcao(option)}
+                className={option === selectedOption ? styles.selectedOption : ''}
+                style={{ color: dropdownStyles.color }}
+              >
+                {option}
+              </a>
+            </li>
             ))}
           </ul>
         </div>

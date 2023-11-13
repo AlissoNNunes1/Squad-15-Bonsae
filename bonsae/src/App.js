@@ -6,10 +6,8 @@ import Dropdown from './components/dropdown/Dropdown'
 function App() {
   return (
     <div className="App">
-      <Dropdown />
-      
-      
-      
+      <Dropdown  />
+
 
     </div>
   );
