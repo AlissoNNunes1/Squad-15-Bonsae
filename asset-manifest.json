@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Squad-15-Bonsae/static/css/main.99e446ca.css",
+    "main.js": "/Squad-15-Bonsae/static/js/main.919f4fb5.js",
+    "static/js/787.1a765628.chunk.js": "/Squad-15-Bonsae/static/js/787.1a765628.chunk.js",
+    "index.html": "/Squad-15-Bonsae/index.html",
+    "main.99e446ca.css.map": "/Squad-15-Bonsae/static/css/main.99e446ca.css.map",
+    "main.919f4fb5.js.map": "/Squad-15-Bonsae/static/js/main.919f4fb5.js.map",
+    "787.1a765628.chunk.js.map": "/Squad-15-Bonsae/static/js/787.1a765628.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99e446ca.css",
+    "static/js/main.919f4fb5.js"
+  ]
+}
