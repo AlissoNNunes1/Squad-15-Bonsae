@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.titulo{
+    width: 167px;
+    height: 30px;
+}
+
+.titulo h2{
+    color: var(--text-heading, #111);
+font-feature-settings: 'clig' off, 'liga' off;
+font-family: Nunito;
+font-size: 21.859px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+
+.bola_subtitulo{
+    height: 7.9px;
+    width: 7.9px;
+    background-color: #1161D8;    ;
+    border-radius: 50%;
+    display: inline-block;
+  }
