@@ -19,7 +19,7 @@ function Dropdown({
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
 
-  const options = ['Nome', 'Situação', 'Data'];
+  const options = ['Nome', 'Situação', 'Data',];
 
   useEffect(() => {
     function handleOutsideClick(event) {
