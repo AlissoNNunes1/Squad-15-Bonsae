@@ -7,9 +7,9 @@ import Titulo from './components/titulo/Titulo';
 function App() {
   return (
     <div className="App">
-      <Dropdown   />
-      <Titulo></Titulo>
-
+      
+      <DataTable></DataTable>
+      
 
     </div>
   );

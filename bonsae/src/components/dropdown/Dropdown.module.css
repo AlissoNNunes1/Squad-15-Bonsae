@@ -30,23 +30,22 @@
   height: 24px;
 }*/
 
-.dropdownButton:hover {
+.dropdownButton:hover, .dropdownButton:focus {
   color: var(--action-light-primary, #1161D8);
 }
 
 .dropdownMenuContainer {
   width: 100%; /* Ajustado para ocupar a largura total do container pai */
-  position: absolute;
+  position: relative;
   top: 100%; /* Colocado no final do botão */
   left: 0; /* Alinhado com a esquerda */
-  display: flex;
+  display: inline-block;
   justify-content: center; /* Centralizado horizontalmente */
 }
 
 .dropdownMenu {
   display: none;
-  width: 174px; /* Largura fixa */
-  max-height: 168px; /* Altura máxima fixa */
+  min-width: 230px; /* Largura fixa */
   position: absolute;
   top: calc(100% + 4px);/* Colocado no final do botão */
   background: #FFF;
@@ -57,7 +56,7 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  display: flex;
+  z-index: 1;
   left: -8px; /* Ajuste da posição lateral */
 }
 
@@ -65,7 +64,7 @@
   align-self: stretch;
   padding: 8px 16px;
   width: 100%;
-  display: flex;
+  display: block;
   font-size: 16px;
   font-family: 'Nunito', sans-serif;
   background: white;

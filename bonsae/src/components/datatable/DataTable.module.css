@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import '~@fortawesome/fontawesome-free/css/all.css';
 
 .background{
     width: 1216.8px;
@@ -6,5 +7,160 @@
     flex-shrink: 0;
     border-radius: 14.572px 14.572px 0px 0px;
     background: var(--background-neutral, #fff);
+    border-radius: 14.572px 14.572px 0px 0px;
+    background: var(--background-neutral, #FFF);
     
 }
+
+.btnsearch{
+    width: 308.754px;
+    height: 43.717px;
+    float: lef;
+    flex-shrink: 0;
+    display: flex;
+    
+}
+
+header {
+    background-color: #fff;
+    padding: 1rem;
+    width: 1216.8px;
+    height: 138.438px;
+    flex-shrink: 0;
+    background: var(--background-neutral, #FFF);
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .pesquisa[type=text]  {
+    
+    flex-shrink: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 10px;
+    margin-bottom: 0.5rem;
+    font-size:14.572px;
+    font-family: Nunito;
+    font-style: italic;
+    font-weight: 400;
+    padding: 10px;
+    line-height: normal;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  .searchButton{
+    background-color: #ccc;
+    display: flex;
+    float: left;
+    padding: 10px;
+    width: 43.717px;
+    border-left: none;
+    cursor: pointer;
+    height: 43.717px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 7.286px;
+  }
+  .searchButton:hover{
+    background: #1161D8;
+  }
+  
+  /* Estilo para a imagem do ícone de pesquisa */
+  .searchButton img {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+  }
+  .pesquisa:focus {
+    outline: none;
+    border: 1px solid #000;
+  }
+
+  .pesquisa::after{
+    content: '';
+    clear: both;
+    display: table;
+  }
+  .pesquisa::before {
+    content: "\f002";
+    font-family: FontAwesome;
+    font-size: 16px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: #ccc;
+  }
+  
+  
+  .row {
+    margin-bottom: 1rem;
+  }
+  
+ 
+  
+  
+  ul {
+    width: 1173.083px;
+    height: 51.004px;
+    flex-shrink: 0;
+    border-radius: 7.286px;
+    background: var(--neutral-gray-50, #F1F1F1);
+    list-style-type: none;
+    color: var(--text-section, #333);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Nunito;
+    font-size: 14.572px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .checkbox{
+    width: 18.216px;
+height: 18.216px;
+flex-shrink: 0;
+  }
+
+  .item{
+    display: flex;
+    width: 262.304px;
+    align-items: center;
+    align-content: center;
+    gap: 7.286px;
+    flex-wrap: wrap;
+    color: var(--text-section, #333);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Nunito;
+    font-size: 14.572px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+  
+  li {
+    display: inline-flex;
+    width: 196.728px;
+    align-items: center;
+    gap: 7.286px;
+    color: var(--text-section, #333);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: 'Nunito';
+    font-size: 14.572px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+  }
+  
+  input {
+    width: 308.754px;
+height: 43.717px;
+flex-shrink: 0;
+border-radius: 7.286px;
+border: 0.911px solid var(--action-light-neutral, #E5E5E5);
+background: var(--background-neutral, #FFF);
+
+  }
+  
