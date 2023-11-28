@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-*{
-  font-family: 'Nunito', sans-serif;
-}
+
 .dropdownContainer {
-  display: relative;
+  display: inline-flex;
   align-items: center;
   gap: 7.286px;
   position: relative;
@@ -13,11 +11,8 @@
 .dropdownButton {
   color: var(--text-section, #333);
   text-align: center;
-align-items: center;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
-  justify-content: center;
-  display: flex;
-  border: 1px solid var(--action-light-primary, #1161D8);
   font-size: 18px;
   line-height: 24px; /* 133.333% */
   border-radius: 80px;
@@ -25,25 +20,32 @@ align-items: center;
   background-color: #fff;
   position: relative;
   z-index: 1;
-  transition: color 0.3s ease;
 }
 
-/*.dropdownImage {
+.dropdownImage {
   width: 24px;
   height: 24px;
-}*/
+}
 
-.dropdownButton:hover, .dropdownButton:focus {
+.dropdownButton:hover {
   color: var(--action-light-primary, #1161D8);
 }
 
-
+.dropdownMenuContainer {
+  width: 100%; /* Ajustado para ocupar a largura total do container pai */
+  position: absolute;
+  top: 100%; /* Colocado no final do botão */
+  left: 0; /* Alinhado com a esquerda */
+  
+  justify-content: center; /* Centralizado horizontalmente */
+}
 
 .dropdownMenu {
- 
-  min-width: 230px; /* Largura fixa */
+  display: none;
+  width: 174px; /* Largura fixa */
+ height: 168px; /* Altura máxima fixa */
   position: absolute;
-  top: 100%;
+  top: 100%; /* Colocado no final do botão */
   background: #FFF;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
@@ -52,22 +54,20 @@ align-items: center;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  z-index: 1;
-  left: 0; /* Ajuste da posição lateral */
+  display: flex;
 }
 
 .dropdownMenu a {
-  
+  align-self: stretch;
   padding: 8px 16px;
   width: 100%;
-  display: none;
+  display: flex;
   font-size: 16px;
-
   font-family: 'Nunito', sans-serif;
   background: white;
-  
-  transition: background-color 0.3s ease;
-  
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   gap: 8px;
   font-weight: 500;
   line-height: 24px;
@@ -104,7 +104,8 @@ align-items: center;
 .dropdownSeparator {
   width: 158px;
   height: 1px;
-  background: #E5E5E5;
+  border: 6px #aa2020 solid;
+  
 }
 
 .dropdownMenu li {

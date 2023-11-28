@@ -1,49 +1,56 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './Dropdown.module.css';
+import styles from "./Dropdown.module.css";
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-const Dropdown = ({
- backgroundColor,
- textColor,
- highlightColor,
- fontFamily,
- fontSize,
- border,
- borderRadius,
- boxShadow,
- options,
- onSelect,
- label,
-}) => {
- const [menuIsOpen, setMenuIsOpen] = useState(false);
- const [selectedOption, setSelectedOption] = useState('');
- const dropdownRef = useRef(null);
+function Dropdown({
+  backgroundColor,
+  textColor,
+  highlightColor,
+  fontFamily,
+  fontSize,
+  border,
+  borderRadius,
+  boxShadow,
+  options,
+  onSelect,
+  label,
+ }) {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [isOptionSelected, setIsOptionSelected] = useState(false);
 
- const toggleMenu = () => {
-    setMenuIsOpen(!menuIsOpen);
- };
+  // Array de opções
+  
 
- const handleOutsideClick = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setMenuIsOpen(false);
+  useEffect(() => {
+    function handleOutsideClick(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setMenuIsOpen(false);
+      }
     }
- };
 
- useEffect(() => {
-    document.addEventListener('mousedown', handleOutsideClick);
+    if (menuIsOpen) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    } else {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    }
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
- }, [menuIsOpen]);
+  }, [menuIsOpen]);
 
- const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    onSelect && onSelect(option);
-    setMenuIsOpen(false);
- };
+  function exibirOpcoes() {
+    setMenuIsOpen(!menuIsOpen);
+  }
 
- const dropdownStyles = {
+  function selecionarOpcao(opcao) {
+    setSelectedOption(opcao);
+    setIsOptionSelected(true);
+    setMenuIsOpen(false); // Feche o menu após a seleção
+  }
+  const dropdownStyles = {
     backgroundColor,
     color: textColor,
     highlightColor,
@@ -54,43 +61,36 @@ const Dropdown = ({
     boxShadow,
  };
 
- return (
+  return (
     <div className={styles.dropdownContainer} ref={dropdownRef}>
-      <button
-        aria-haspopup="true"
-        aria-expanded={menuIsOpen}
-        type="button"
-        onClick={toggleMenu}
-        className={styles.dropdownButton}
-        style={dropdownStyles}
-        aria-label={label || 'Dropdown'}
-      >
-        {selectedOption || 'Filtrar por'}
+      <button aria-haspopup="true" aria-expanded="false" type='button'  data-toggle="dropdown" onClick={exibirOpcoes} className={styles.dropdownButton}>
+        {selectedOption ? selectedOption : 'Filtrar por'} {/* Exibe a opção selecionada ou 'Filtrar por' */}
       </button>
       <div className={styles.dropdownImage}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <g clip-path="url(#clip0_8_6498)">
-            <path d="M14 18L10 18L10 16L14 16V18ZM21 6V8L3 8V6L21 6ZM18 13L6 13V11L18 11V13Z" fill="#1161D8" />
-          </g>
-          <defs>
-            <clipPath id="clip0_8_6498">
-              <rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0)" />
-            </clipPath>
-          </defs>
-        </svg>
+        { <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="23"
+          height="23"
+          viewBox="0 0 23 23"
+          fill="none"
+        >
+          <path
+            d="M13.4435 16.5826H9.80041L9.80041 14.7611H13.4435V16.5826ZM19.819 5.65327V7.47483L3.42496 7.47483V5.65327L19.819 5.65327ZM17.0866 12.0287L6.15729 12.0287V10.2072L17.0866 10.2072V12.0287Z"
+            fill="#1161D8"
+          />
+        </svg>}
       </div>
       {menuIsOpen && (
         <div className={styles.dropdownMenuContainer}>
-          <ul className={styles.dropdownMenu} style={{ backgroundColor }}>
+          <ul className={styles.dropdownMenu}>
             {options.map((option, index) => (
               <li key={index}>
                 <a
-                 href="#"
-                 onClick={() => handleOptionClick(option)}
-                 className={option === selectedOption ? styles.selectedOption : ''}
-                 style={{ color: textColor }}
+                  href="#"
+                  onClick={() => selecionarOpcao(option)}
+                  className={option === selectedOption ? styles.selectedOption : ''}
                 >
-                 {option}
+                  {option}
                 </a>
               </li>
             ))}
@@ -98,21 +98,21 @@ const Dropdown = ({
         </div>
       )}
     </div>
- );
-};
+  );
+}
 
 Dropdown.propTypes = {
- backgroundColor: PropTypes.string,
- textColor: PropTypes.string,
- highlightColor: PropTypes.string,
- fontFamily: PropTypes.string,
- fontSize: PropTypes.string,
- border: PropTypes.string,
- borderRadius: PropTypes.string,
- boxShadow: PropTypes.string,
- options: PropTypes.arrayOf(PropTypes.string).isRequired,
- onSelect: PropTypes.func,
- label: PropTypes.string,
-};
+  backgroundColor: PropTypes.string,
+  textColor: PropTypes.string,
+  highlightColor: PropTypes.string,
+  fontFamily: PropTypes.string,
+  fontSize: PropTypes.string,
+  border: PropTypes.string,
+  borderRadius: PropTypes.string,
+  boxShadow: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onSelect: PropTypes.func,
+  label: PropTypes.string,
+ };
 
 export default Dropdown;
