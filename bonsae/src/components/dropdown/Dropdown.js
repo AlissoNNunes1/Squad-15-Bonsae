@@ -12,6 +12,7 @@ function Dropdown({
   borderRadius,
   boxShadow,
   options,
+  optionUrls,
   onSelect,
   label,
  }) {
@@ -45,10 +46,11 @@ function Dropdown({
     setMenuIsOpen(!menuIsOpen);
   }
 
-  function selecionarOpcao(opcao) {
+  function selecionarOpcao(opcao,index) {
     setSelectedOption(opcao);
     setIsOptionSelected(true);
     setMenuIsOpen(false); // Feche o menu após a seleção
+    window.location.href = optionUrls[index];
   }
   const dropdownStyles = {
     backgroundColor,
@@ -86,8 +88,8 @@ function Dropdown({
             {options.map((option, index) => (
               <li key={index}>
                 <a
-                  href="#"
-                  onClick={() => selecionarOpcao(option)}
+                  href='#'
+                  onClick={() => selecionarOpcao(option, index)}
                   className={option === selectedOption ? styles.selectedOption : ''}
                 >
                   {option}
@@ -113,6 +115,9 @@ Dropdown.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onSelect: PropTypes.func,
   label: PropTypes.string,
- };
+  href: PropTypes.string,
+  optionUrls: PropTypes.arrayOf(PropTypes.string), // array de URLs correspondentes às opções
+};
+
 
 export default Dropdown;

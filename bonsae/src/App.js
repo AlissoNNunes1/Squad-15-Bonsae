@@ -4,6 +4,7 @@ import Dropdown from './components/dropdown/Dropdown';
 import axios from 'axios';
 import dados from './components/datatable/dados_aleatorios.csv'
 import Titulo from './components/titulo/Titulo'
+import handleToggleOrder from './components/datatable/DataTable'
 
 function App() {
  const [csvData, setCsvData] = useState([]);
@@ -29,7 +30,7 @@ function App() {
  return (
     <div className="App">
       <Titulo content='Titulo'></Titulo>
-      <Dropdown options={['Option 1', 'Option 2', 'Option 3']} />
+      <Dropdown optionUrls={[[handleToggleOrder], 'url-opcao-2', 'url-opcao-3']} options={['Option 1', 'Option 2', 'Option 3']} />
       <DataTable 
         columns={columns} 
         headers={headers} 
