@@ -1,78 +1,71 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './Dropdown.module.css';
 import PropTypes from 'prop-types';
-import styles from "./Dropdown.module.css";
 
-function Dropdown({
-  backgroundColor,
-  textColor,
-  highlightColor,
-  fontFamily,
-  fontSize,
-  border,
-  borderRadius,
-  boxShadow,
-  onSelect,
-  label,
-}) {
-  const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [isOptionSelected, setIsOptionSelected] = useState(false);
+const Dropdown = ({
+ backgroundColor,
+ textColor,
+ highlightColor,
+ fontFamily,
+ fontSize,
+ border,
+ borderRadius,
+ boxShadow,
+ options,
+ onSelect,
+ label,
+}) => {
+ const [menuIsOpen, setMenuIsOpen] = useState(false);
+ const [selectedOption, setSelectedOption] = useState('');
+ const dropdownRef = useRef(null);
 
-  const options = ['Nome', 'Situação', 'Data',];
+ const toggleMenu = () => {
+    setMenuIsOpen(!menuIsOpen);
+ };
 
-  useEffect(() => {
-    function handleOutsideClick(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setMenuIsOpen(false);
-      }
+ const handleOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setMenuIsOpen(false);
     }
+ };
 
-    if (menuIsOpen) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    } else {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    }
+ useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [menuIsOpen]);
+ }, [menuIsOpen]);
 
-  function toggleMenu() {
-    setMenuIsOpen(!menuIsOpen);
-  }
+ const handleOptionClick = (option) => {
+    setSelectedOption(option);
+    onSelect && onSelect(option);
+    setMenuIsOpen(false);
+ };
 
-  function selecionarOpcao(opcao) {
-    setSelectedOption(opcao);
-    setIsOptionSelected(true);
-    setMenuIsOpen(false); // Feche o menu após a seleção
-  }
-
-  const dropdownStyles = {
-    backgroundColor: backgroundColor,
+ const dropdownStyles = {
+    backgroundColor,
     color: textColor,
-    highlightColor: highlightColor,
-    fontFamily: fontFamily,
-    fontSize: fontSize,
-    border: border,
-    borderRadius: borderRadius,
-    boxShadow: boxShadow,
-  };
+    highlightColor,
+    fontFamily,
+    fontSize,
+    border,
+    borderRadius,
+    boxShadow,
+ };
 
-  return (
+ return (
     <div className={styles.dropdownContainer} ref={dropdownRef}>
       <button
         aria-haspopup="true"
         aria-expanded={menuIsOpen}
         type="button"
-        data-toggle="dropdown"
         onClick={toggleMenu}
         className={styles.dropdownButton}
         style={dropdownStyles}
         aria-label={label || 'Dropdown'}
       >
-        {selectedOption ? selectedOption : 'Filtrar por'}
+        {selectedOption || 'Filtrar por'}
       </button>
       <div className={styles.dropdownImage}>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -88,38 +81,38 @@ function Dropdown({
       </div>
       {menuIsOpen && (
         <div className={styles.dropdownMenuContainer}>
-          <ul className={styles.dropdownMenu} style={{ backgroundColor: dropdownStyles.backgroundColor }}>
+          <ul className={styles.dropdownMenu} style={{ backgroundColor }}>
             {options.map((option, index) => (
               <li key={index}>
-              <a
-                href="#"
-                onClick={() => selecionarOpcao(option)}
-                className={option === selectedOption ? styles.selectedOption : ''}
-                style={{ color: dropdownStyles.color }}
-              >
-                {option}
-              </a>
-            </li>
+                <a
+                 href="#"
+                 onClick={() => handleOptionClick(option)}
+                 className={option === selectedOption ? styles.selectedOption : ''}
+                 style={{ color: textColor }}
+                >
+                 {option}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
       )}
     </div>
-  );
-}
+ );
+};
 
 Dropdown.propTypes = {
-  backgroundColor: PropTypes.string,
-  textColor: PropTypes.string,
-  highlightColor: PropTypes.string,
-  fontFamily: PropTypes.string,
-  fontSize: PropTypes.string,
-  border: PropTypes.string,
-  borderRadius: PropTypes.string,
-  boxShadow: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onSelect: PropTypes.func,
-  label: PropTypes.string,
+ backgroundColor: PropTypes.string,
+ textColor: PropTypes.string,
+ highlightColor: PropTypes.string,
+ fontFamily: PropTypes.string,
+ fontSize: PropTypes.string,
+ border: PropTypes.string,
+ borderRadius: PropTypes.string,
+ boxShadow: PropTypes.string,
+ options: PropTypes.arrayOf(PropTypes.string).isRequired,
+ onSelect: PropTypes.func,
+ label: PropTypes.string,
 };
 
 export default Dropdown;

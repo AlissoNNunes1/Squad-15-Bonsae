@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
+*{
+  font-family: 'Nunito', sans-serif;
+}
 .dropdownContainer {
-  display: inline-flex;
+  display: relative;
   align-items: center;
   gap: 7.286px;
   position: relative;
@@ -11,10 +13,10 @@
 .dropdownButton {
   color: var(--text-section, #333);
   text-align: center;
-  font-family: 'Nunito', sans-serif;
+align-items: center;
   font-weight: 700;
   justify-content: center;
-  display: inline-flex;
+  display: flex;
   border: 1px solid var(--action-light-primary, #1161D8);
   font-size: 18px;
   line-height: 24px; /* 133.333% */
@@ -23,6 +25,7 @@
   background-color: #fff;
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease;
 }
 
 /*.dropdownImage {
@@ -34,20 +37,13 @@
   color: var(--action-light-primary, #1161D8);
 }
 
-.dropdownMenuContainer {
-  width: 100%; /* Ajustado para ocupar a largura total do container pai */
-  position: relative;
-  top: 100%; /* Colocado no final do botão */
-  left: 0; /* Alinhado com a esquerda */
-  display: inline-block;
-  justify-content: center; /* Centralizado horizontalmente */
-}
+
 
 .dropdownMenu {
-  display: none;
+ 
   min-width: 230px; /* Largura fixa */
   position: absolute;
-  top: calc(100% + 4px);/* Colocado no final do botão */
+  top: 100%;
   background: #FFF;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
@@ -57,20 +53,21 @@
   align-items: center;
   gap: 8px;
   z-index: 1;
-  left: -8px; /* Ajuste da posição lateral */
+  left: 0; /* Ajuste da posição lateral */
 }
 
 .dropdownMenu a {
-  align-self: stretch;
+  
   padding: 8px 16px;
   width: 100%;
-  display: block;
+  display: none;
   font-size: 16px;
+
   font-family: 'Nunito', sans-serif;
   background: white;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+  
+  transition: background-color 0.3s ease;
+  
   gap: 8px;
   font-weight: 500;
   line-height: 24px;
