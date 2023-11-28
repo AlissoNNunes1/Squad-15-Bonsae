@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from "./Titulo.module.css";
 
-function Titulo({ backgroundColor, textColor, fontSize }) {
+function Titulo({ backgroundColor, textColor, fontSize, content}) {
   const tituloStyles = {
     backgroundColor: backgroundColor || 'transparent',
     color: textColor || '#000',
@@ -12,7 +12,7 @@ function Titulo({ backgroundColor, textColor, fontSize }) {
 
   return (
     <div className={styles.titulo} style={tituloStyles}>
-      <h2>Título da página</h2>
+      <h2>{content}</h2>
     </div>
   );
 }
@@ -21,6 +21,7 @@ Titulo.propTypes = {
   backgroundColor: PropTypes.string,
   textColor: PropTypes.string,
   fontSize: PropTypes.string,
+  content: PropTypes.node.isRequired,
   // Adicione outras propTypes para outras opções de personalização
 };
 
