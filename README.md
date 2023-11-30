@@ -1,6 +1,5 @@
 
 
-```markdown
 # Documentação do React e Componentes
 
 - [Instalação do React](#instalação-do-react)
@@ -34,7 +33,7 @@
 
 ---
 
-## Instalação do React
+# Instalação do React
 
 Este é um guia passo a passo para instalar o `React`.
 
