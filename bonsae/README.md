@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Instalação do React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um guia passo a passo para instalar o `React`.
 
-## Available Scripts
+## Pré-requisitos
+Para instalar o `React`, você precisará de:
 
-In the project directory, you can run:
+Um computador com Windows, macOS ou Linux
+Um editor de texto, como o Visual Studio Code ou o Sublime Text
+O Node.js e o npm
+Instalando o Node.js e o npm
+O Node.js é uma plataforma JavaScript de código aberto que permite executar JavaScript fora do navegador. O npm é um gerenciador de pacotes para o Node.js.
 
-### `npm start`
+Para instalar o Node.js e o npm, siga as instruções para o seu sistema operacional:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Windows
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Baixe o instalador do Node.js da página de download do Node.js.
+Execute o instalador e siga as instruções na tela.
+macOS
 
-### `npm test`
+Abra o Terminal.
+Execute o seguinte comando:
+brew install node
+Linux
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Abra um terminal.
+Execute o seguinte comando:
+sudo apt install nodejs
+Verificando a instalação
+Depois de instalar o Node.js e o npm, você pode verificar se eles estão instalados corretamente executando os seguintes comandos:
 
-### `npm run build`
+## node -v
+## npm -v
+## Instalando o React
+Para instalar o React, execute o seguinte comando no terminal:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install react
+Este comando instalará o React e todos os pacotes necessários para usá-lo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Exemplo de uso
+Para criar um exemplo de uso do React, crie um novo arquivo chamado index.js e adicione o seguinte código:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+````JavaScript
+import React from 'react';
 
-### `npm run eject`
+function App() {
+  return (
+    <div>
+      <h1>Meu primeiro React</h1>
+    </div>
+  );
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+export default App;
+Use o código com cuidado. Saiba mais
+Para executar o exemplo, abra o terminal no diretório do arquivo index.js e execute o seguinte comando:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## npm start
+Este comando iniciará um servidor de desenvolvimento local que você pode usar para visualizar o exemplo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusão
+Após a instalação, você estará pronto para começar a desenvolver aplicações React.
