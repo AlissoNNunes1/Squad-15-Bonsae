@@ -334,6 +334,4 @@ Você pode adicionar outras propriedades de estilo conforme necessário para ate
 Certifique-se de ajustar e adicionar outras propriedades conforme necessário para personalizar o componente de acordo com suas necessidades específicas.
 
 Para mais detalhes sobre as propriedades disponíveis e sua utilização, consulte o código-fonte do componente `Titulo`.
-```
 
-Espero que este formato melhorado atenda às suas expectativas!
