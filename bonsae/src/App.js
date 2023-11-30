@@ -2,44 +2,22 @@ import React, { useState, useEffect } from 'react';
 import DataTable from './components/datatable/DataTable';
 import Dropdown from './components/dropdown/Dropdown';
 import axios from 'axios';
-import dados from './components/datatable/dados_aleatorios.csv'
-import Titulo from './components/titulo/Titulo'
-import handleToggleOrder from './components/datatable/DataTable'
+import dados from './components/datatable/dados_aleatorios.csv';
+import Titulo from './components/titulo/Titulo';
+import handleToggleOrder from './components/datatable/DataTable';
 
-function App() {
- const [csvData, setCsvData] = useState([]);
+const App = () => {
+  
+  const columns = ['Nome', 'Situação', 'Tipo', 'Data', 'Informação'];
+  const headers = ['Nome', 'Situação', 'Tipo', 'Data', 'Informação'];
 
- useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get([dados]); // Substitua pelo caminho correto do seu arquivo CSV
-        setCsvData(response.data);
-      } catch (error) {
-        console.error('Erro ao carregar dados do arquivo:', error);
-      }
-    };
-
-    fetchData();
- }, []);
-
- const columns = ['Column1', 'Column2', 'Column3', 'Column4', 'Column5']; // Defina suas colunas aqui
- const headers = ['Nome', 'Situação', 'Tipo', 'Data', 'Informação']; // Defina os cabeçalhos aqui
-
- 
-
- return (
+  return (
     <div className="App">
-      <Titulo content='Titulo'></Titulo>
-      <Dropdown optionUrls={[[handleToggleOrder], 'url-opcao-2', 'url-opcao-3']} options={['Option 1', 'Option 2', 'Option 3']} />
-      <DataTable 
-        columns={columns} 
-        headers={headers} 
-        initialData={csvData} 
-        
-      />
+      <Titulo content='Titulo' textColor='#111'  fontSize='21px' fontFamily='Nunito, sans-serif'/>
+      <DataTable columns={columns} headers={headers} csvData={dados}> </DataTable>
       
     </div>
- );
-}
+  );
+};
 
 export default App;

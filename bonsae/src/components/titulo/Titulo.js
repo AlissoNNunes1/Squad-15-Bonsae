@@ -1,17 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from "./Titulo.module.css";
 
-function Titulo({ backgroundColor, textColor, fontSize, content}) {
+function Titulo({
+  backgroundColor,
+  textColor,
+  fontSize,
+  content,
+  padding,
+  margin,
+  fontWeight,
+  fontFamily,
+  // Adicione mais propriedades conforme necessário
+}) {
   const tituloStyles = {
-    backgroundColor: backgroundColor || 'transparent',
-    color: textColor || '#000',
-    fontSize: fontSize || '24px',
+    backgroundColor,
+    color: textColor,
+    fontSize,
+    padding,
+    margin,
+    fontWeight,
+    fontFamily,
     // Adicione outras propriedades de estilo conforme necessário
   };
 
   return (
-    <div className={styles.titulo} style={tituloStyles}>
+    <div style={tituloStyles}>
       <h2>{content}</h2>
     </div>
   );
@@ -22,6 +35,10 @@ Titulo.propTypes = {
   textColor: PropTypes.string,
   fontSize: PropTypes.string,
   content: PropTypes.node.isRequired,
+  padding: PropTypes.string,
+  margin: PropTypes.string,
+  fontWeight: PropTypes.string,
+  fontFamily: PropTypes.string,
   // Adicione outras propTypes para outras opções de personalização
 };
 

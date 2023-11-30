@@ -12,7 +12,7 @@ function Dropdown({
   borderRadius,
   boxShadow,
   options,
-  optionUrls,
+  
   onSelect,
   label,
  }) {
@@ -50,7 +50,8 @@ function Dropdown({
     setSelectedOption(opcao);
     setIsOptionSelected(true);
     setMenuIsOpen(false); // Feche o menu após a seleção
-    window.location.href = optionUrls[index];
+    onSelect(opcao)
+    
   }
   const dropdownStyles = {
     backgroundColor,
@@ -88,7 +89,8 @@ function Dropdown({
             {options.map((option, index) => (
               <li key={index}>
                 <a
-                  href='#'
+                  
+                  target="_blank"
                   onClick={() => selecionarOpcao(option, index)}
                   className={option === selectedOption ? styles.selectedOption : ''}
                 >

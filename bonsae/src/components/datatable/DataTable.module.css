@@ -2,10 +2,11 @@
     @import '~@fortawesome/fontawesome-free/css/all.css';
 
     *{
-      font-family: 'Nunito', sans-serif;
+      
     }
 
     .background{
+      font-family: 'Nunito', sans-serif;
         max-width: 1216.8px;
         max-height: 676.8px;
         flex-shrink: 0;
@@ -16,6 +17,7 @@
     }
 
     .btnsearch{
+      font-family: 'Nunito', sans-serif;
         
         flex-shrink: 0;
         display: flex;
@@ -23,6 +25,7 @@
     }
 
     header {
+       font-family: 'Nunito', sans-serif;
         background-color: #fff;
         padding: 1rem;
         width: 1216.8px;
@@ -34,7 +37,7 @@
         box-sizing: border-box;
       }
       .pesquisa[type=text]  {
-        
+        font-family: 'Nunito', sans-serif;
         flex-grow: 1;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -53,7 +56,7 @@
       .searchButton{
         background-color: #ccc;
         display: flex;
-        
+        font-family: 'Nunito', sans-serif;
         padding: 10px;
         width: 43.717px;
         border-left: none;
@@ -73,6 +76,7 @@
         width: 16px;
         height: 16px;
         border-radius: 4px;
+
       }
       .pesquisa:focus {
         outline: none;
@@ -97,12 +101,14 @@
       
     
       table {
-        width: 1173.083px;
+       font-family: 'Nunito', sans-serif;
+        max-width: 1173.083px;
         border-collapse: collapse;
       }
       
       
       ul {
+
         display: flex;
         width: 1173.083px;
         height: 51.004px;
@@ -112,7 +118,7 @@
         list-style-type: none;
         color: var(--text-section, #333);
         font-feature-settings: 'clig' off, 'liga' off;
-      
+        font-family: 'Nunito', sans-serif;
         font-size: 14.572px;
         font-style: normal;
         font-weight: 500;
@@ -133,7 +139,7 @@
         flex-wrap: wrap;
         color: var(--text-section, #333);
         font-feature-settings: 'clig' off, 'liga' off;
-        font-family: Nunito;
+        font-family: 'Nunito', sans-serif;
         font-size: 14.572px;
         font-style: normal;
         font-weight: 500;
@@ -148,7 +154,7 @@
         gap: 6.286px;
         color: var(--text-section, #333);
         font-feature-settings: 'clig' off, 'liga' off;
-        font-family: 'Nunito';
+        font-family: 'Nunito', sans-serif;
         font-size: 14.572px;
         font-style: normal;
         font-weight: 500;
@@ -157,6 +163,7 @@
       }
 
       .arrow::before {
+        
         content: "";
         cursor: pointer;
         display: inline-block;
@@ -182,6 +189,7 @@
       }
       
       input {
+        font-family: 'Nunito', sans-serif;
         width: 308.754px;
     height: 43.717px;
     flex-shrink: 0;
@@ -192,24 +200,27 @@
       }
 
       tbody{
-        
+        font-family: 'Nunito', sans-serif;
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        max-width: 1173.083px;
         }
        
       tr{
+        font-family: 'Nunito', sans-serif;
+        max-height: 44px;
         margin-left: 37px;
         display: flex;
         flex-direction: row;
-        width: 1163.083px;
-       
+        width: 1173.083px;
         border-bottom: 0.911px solid var(--border-light, #DDD);
         background: var(--background-neutral, #FFF);
         border-radius: 7.286px;
       
       }
       td {
+        font-family: 'Nunito', sans-serif;
         width: 18.4%;
         padding: 10px;
         color: var(--text-section, #333);
@@ -221,6 +232,7 @@
         line-height: normal;
       }
       .pagination {
+        font-family: 'Nunito', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -229,6 +241,7 @@
        }
        
        .btn {
+        font-family: 'Nunito', sans-serif;
         cursor: pointer;
         background-color: #007bff;
         border: none;
