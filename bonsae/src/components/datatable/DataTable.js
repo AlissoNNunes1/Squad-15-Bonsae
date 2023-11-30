@@ -7,7 +7,9 @@ import { debounce } from "lodash";
 import Dropdown from "../dropdown/Dropdown";
 
 
-function DataTable({ columns, headers, csvData }) {
+function DataTable({ columns, headers, csvData ,tableBackground,
+  textColor,
+  fontSize, }) {
   const [tableData, setTableData] = useState([]);
   const [order, setOrder] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
@@ -146,75 +148,122 @@ const debouncedSearch = debounce((value) => {
   setSearchTerm(value);
 }, 50);
 
+// Adicione um estado para armazenar as células selecionadas
+const [selectedCells, setSelectedCells] = useState([]);
+
+// Função para lidar com o clique na célula
+const handleCellClick = (rowData, column) => {
+  // Verifica se a célula já está selecionada
+  const cellIsSelected = selectedCells.some(
+    (cell) => cell.rowData === rowData && cell.column === column
+  );
+
+  let updatedSelectedCells;
+
+  // Se a célula já estiver selecionada, remove da lista de selecionadas
+  if (cellIsSelected) {
+    updatedSelectedCells = selectedCells.filter(
+      (cell) => !(cell.rowData === rowData && cell.column === column)
+    );
+  } else {
+    // Se a célula não estiver selecionada, adiciona à lista de selecionadas
+    updatedSelectedCells = [
+      ...selectedCells,
+      { rowData, column }
+    ];
+  }
+
+  // Atualiza o estado com as células selecionadas
+  setSelectedCells(updatedSelectedCells);
+
+  // Você pode realizar outras ações com base na célula clicada, se necessário
+};
 
 
  return (
  
-    <div className={styles.background}>
-      <header>
-        <div className={styles.btnsearch}>
-          <div>
-            <input
-              type="text"
-              className={styles.pesquisa}
-              placeholder="Pesquisar por"
-              aria-label="Pesquisar por"
-              value={searchTerm}
-              onChange={(e) => debouncedSearch(e.target.value)}
-            />
-          </div>
-          <button type="submit" className={styles.searchButton} aria-label="Pesquisar">
-            <img src={searchIcon} alt="Ícone de Pesquisa" onClick={() => setSearchTerm('')} />
-          </button>
-          <Dropdown
-              options={['Nome', 'Situação', 'Tipo', 'Data', 'Informação']}
-              onSelect={(option) => setSelectedOption(option)}
-            />
-        </div>
-       
+  // ... (código anterior)
 
-        <ul className={styles.list}>
-          {columns.map((column, index) => (
-            <li className={styles.item} key={index} onClick={() => handleToggleOrder(column)}>
-              {headers[index]}
-              <span
-  className={`${styles.arrow} ${
-    order[column] === 'asc' ? styles.arrowUp : styles.arrowDown
-  }`}
-  onClick={() => handleToggleOrder(column)}
-></span>
-            </li>
-          ))}
-        </ul>
-      </header>
-      <table className={styles.table}>
-        <tbody>
-          {tableData
-            .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
-            .map((rowData, rowIndex) => (
-              <tr key={rowIndex}>
-                {columns.map((column, colIndex) => (
-                  <td key={colIndex} className={styles[column]}>
-                    {rowData[column]}
-                  </td>
-                ))}
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    <div className={styles.pagination}>
-        <button className={styles.btn} type="button" onClick={handlePreviousPage}>
-          Previous
-        </button>
-        <span>
-          Page <strong>{currentPage}</strong> of{" "}
-          <strong>{Math.ceil(arrayData.length / rowsPerPage)}</strong>
-        </span>
-        <button className={styles.btn} type="button" onClick={handleNextPage}>
-          Next
-        </button>
+<div className={styles.background} style={{ backgroundColor: tableBackground }}>
+  <header>
+    <div className={styles.btnsearch}>
+      <div>
+        {/* Adicionando rótulo ao campo de pesquisa */}
+        <label htmlFor="searchInput" className={styles.label}>
+          Pesquisar por:
+        </label>
+        <input
+          type="text"
+          id="searchInput"
+          className={styles.pesquisa}
+          placeholder="Pesquisar por"
+          aria-label="Pesquisar por"
+          value={searchTerm}
+          onChange={(e) => debouncedSearch(e.target.value)}
+        />
       </div>
+      <button type="submit" className={styles.searchButton} aria-label="Pesquisar">
+        <img src={searchIcon} alt="Ícone de Pesquisa" onClick={() => setSearchTerm('')} />
+      </button>
+      {/* Adicionando rótulo ao Dropdown */}
+      <Dropdown
+        options={['Nome', 'Situação', 'Tipo', 'Data', 'Informação']}
+        onSelect={(option) => setSelectedOption(option)}
+        ariaLabel="Selecione uma opção"
+      />
     </div>
+
+    <ul className={styles.list}>
+      {columns.map((column, index) => (
+        <li className={styles.item} key={index} onClick={() => handleToggleOrder(column)}>
+          {/* Adicionando rótulos aos cabeçalhos da tabela */}
+          <span
+            className={`${styles.arrow} ${
+              order[column] === 'asc' ? styles.arrowUp : styles.arrowDown
+            }`}
+            onClick={() => handleToggleOrder(column)}
+            aria-label={`Ordenar por ${headers[index]}`}
+          ></span>
+          {headers[index]}
+        </li>
+      ))}
+    </ul>
+  </header>
+  <table className={`${styles.table} ${styles.customTable}`} style={{ fontSize: fontSize }}>
+    <tbody>
+      {tableData
+        .slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
+        .map((rowData, rowIndex) => (
+          <tr key={rowIndex}>
+            {columns.map((column, colIndex) => (
+              <td
+                key={colIndex}
+                className={`${styles[column]} ${styles.customCell}`}
+                onClick={() => handleCellClick(rowData, column)}
+                style={{ color: textColor }}
+              >
+                {rowData[column]}
+              </td>
+            ))}
+          </tr>
+        ))}
+    </tbody>
+  </table>
+  <div className={styles.pagination}>
+    {/* Adicionando rótulos aos botões de navegação */}
+    <button className={styles.btn} type="button" onClick={handlePreviousPage} aria-label="Página anterior">
+      Previous
+    </button>
+    <span>
+      Page <strong>{currentPage}</strong> of{" "}
+      <strong>{Math.ceil(arrayData.length / rowsPerPage)}</strong>
+    </span>
+    <button className={styles.btn} type="button" onClick={handleNextPage} aria-label="Próxima página">
+      Next
+    </button>
+  </div>
+</div>
+
  );
 }
 DataTable.propTypes = {
