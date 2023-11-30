@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Squad-15-Bonsae/static/css/main.b7591a4b.css",
-    "main.js": "/Squad-15-Bonsae/static/js/main.10f5b7ee.js",
+    "main.css": "/Squad-15-Bonsae/static/css/main.772b2e70.css",
+    "main.js": "/Squad-15-Bonsae/static/js/main.f8510de4.js",
     "static/js/787.1a765628.chunk.js": "/Squad-15-Bonsae/static/js/787.1a765628.chunk.js",
     "static/media/fa-solid-900.ttf": "/Squad-15-Bonsae/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
     "static/media/fa-brands-400.ttf": "/Squad-15-Bonsae/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
@@ -10,16 +10,16 @@
     "static/media/fa-regular-400.ttf": "/Squad-15-Bonsae/static/media/fa-regular-400.50701fbb8177c2dde530.ttf",
     "static/media/fa-regular-400.woff2": "/Squad-15-Bonsae/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
     "static/media/fa-v4compatibility.ttf": "/Squad-15-Bonsae/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
-    "static/media/dados_aleatorios.csv": "/Squad-15-Bonsae/static/media/dados_aleatorios.79ad2a0a771cfd53ca17.csv",
+    "static/media/dados_aleatorios.csv": "/Squad-15-Bonsae/static/media/dados_aleatorios.b8896b1026fb9a6efe18.csv",
     "static/media/fa-v4compatibility.woff2": "/Squad-15-Bonsae/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/Squad-15-Bonsae/index.html",
     "static/media/switch_right.svg": "/Squad-15-Bonsae/static/media/switch_right.8d2d50a97050993416cf.svg",
-    "main.b7591a4b.css.map": "/Squad-15-Bonsae/static/css/main.b7591a4b.css.map",
-    "main.10f5b7ee.js.map": "/Squad-15-Bonsae/static/js/main.10f5b7ee.js.map",
+    "main.772b2e70.css.map": "/Squad-15-Bonsae/static/css/main.772b2e70.css.map",
+    "main.f8510de4.js.map": "/Squad-15-Bonsae/static/js/main.f8510de4.js.map",
     "787.1a765628.chunk.js.map": "/Squad-15-Bonsae/static/js/787.1a765628.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7591a4b.css",
-    "static/js/main.10f5b7ee.js"
+    "static/css/main.772b2e70.css",
+    "static/js/main.f8510de4.js"
   ]
 }
